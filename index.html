@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Хлопушка — игровая лавка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Шапка: аккаунт и настройки -->
+<header class="hdr">
+  <span class="mini">ХЛОПУШКА</span>
+  <div class="hr">
+    <button id="accBtn" class="hbtn" aria-label="Аккаунт"></button>
+    <button id="setBtn" class="hbtn" aria-label="Настройки"><i class="bi bi-gear-fill"></i></button>
+  </div>
+</header>
+<!-- Приветственная сцена: вывеска, поиск, категории -->
+<button id="pop" class="pop" aria-label="Хлопнуть хлопушкой">
+  <svg viewBox="0 0 120 120" aria-hidden="true">
+    <path d="M10 112 L36 40 L82 86 Z" fill="var(--sun)" stroke="var(--ink)" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M22 78 L50 98 M30 58 L66 90" stroke="var(--coral)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M52 34 q10-22 30-14 M70 52 q22-14 34 6 M86 74 q16 0 20 20" fill="none" stroke="var(--mint)" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="96" cy="30" r="5" fill="var(--sky)"/><circle cx="104" cy="58" r="4" fill="var(--coral)"/><circle cx="62" cy="14" r="4" fill="var(--sun)"/>
+  </svg>
+</button>
+<main>
+  <section class="hero">
+    <h1 id="logo" title="Хлопни!"><span>ХЛОП</span><span>УШКА</span></h1>
+    <p class="lead">Лавка мини-игр. Хлопни по вывеске — посыплется конфетти, выбери коробку — начнётся игра.</p>
+    <label class="find"><i class="bi bi-search"></i> <input id="q" type="search" placeholder="Найти игру" aria-label="Поиск игр"></label>
+    <nav id="cats" aria-label="Категории"></nav>
+  </section>
+  <section id="grid" aria-live="polite"></section>
+  <footer class="foot"><i class="bi bi-heart-fill"></i> <span id="people"></span></footer>
+</main>
+
+<!-- Игровой стол -->
+<section id="stage" hidden>
+  <div class="bar">
+    <button id="back"><i class="bi bi-arrow-left"></i> В лавку</button>
+    <h2 id="gt"></h2>
+    <div id="lv" class="lv"></div>
+    <span>Счёт <b id="sc">0</b></span>
+    <span>Рекорд <b id="bs">—</b></span>
+    <button id="re" aria-label="Перезапуск"><i class="bi bi-arrow-clockwise"></i> Заново</button>
+  </div>
+  <div id="how" class="how"></div>
+  <div id="box"></div>
+  <button id="re2" class="re2"><i class="bi bi-arrow-clockwise"></i> Заново <kbd>R</kbd></button>
+</section>
+
+<!-- Настройки: режим, звук, цветовые схемы, вход в аккаунт -->
+<div id="set" class="modal" hidden><div class="mbox">
+  <button class="mx" data-close aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+  <h3><i class="bi bi-gear-fill"></i> Настройки</h3>
+  <div class="srow"><span><i class="bi bi-circle-half"></i> Светлая / тёмная</span><button id="theme" class="sw" aria-label="Светлая / тёмная тема"><i class="bi bi-sun-fill"></i><i class="bi bi-moon-stars-fill"></i><b></b></button></div>
+  <div class="srow"><span>Звук</span><button id="snd" aria-label="Звук вкл/выкл"></button></div>
+  <h4><i class="bi bi-palette-fill"></i> Цветовая схема</h4>
+  <div id="pals" class="pals"></div>
+  <div class="srow"><span><i class="bi bi-person-circle"></i> Аккаунт</span><button id="setAcc">Открыть</button></div>
+</div></div>
+<!-- Аккаунт: вход, регистрация, профиль -->
+<div id="acc" class="modal" hidden><div class="mbox">
+  <button class="mx" data-close aria-label="Закрыть"><i class="bi bi-x-lg"></i></button>
+  <div id="accBody"></div>
+</div></div>
+<script src="script.js"></script>
+</body>
+</html>
